@@ -48,6 +48,7 @@ Boston, MA  02110-1301, USA.
 #include "scsi.h"
 #include "sasi.h"
 #include "ide.h"
+#include "host.h"
 #include "z80mem.h"
 #include "z80.h"
 #include "userkybd.h"
@@ -486,6 +487,9 @@ void BeebWin::LoadPreferences()
 	if (!PrefsGetBinaryValue("IDEDriveEnabled",&IDEDriveEnabled,1))
 		IDEDriveEnabled=0;
 
+	if (!PrefsGetBinaryValue("EmulatorTrap",&EmulatorTrap,1))
+		EmulatorTrap=0;
+
 	if (!PrefsGetBinaryValue("RTCEnabled",&flag,1))
 		RTC_Enabled=0;
 	else
@@ -725,6 +729,7 @@ void BeebWin::SavePreferences(bool saveAll)
 		PrefsSetBinaryValue("FloppyDriveEnabled",&Disc8271Enabled,1);
 		PrefsSetBinaryValue("SCSIDriveEnabled",&SCSIDriveEnabled,1);
 		PrefsSetBinaryValue("IDEDriveEnabled",&IDEDriveEnabled,1);
+		PrefsSetBinaryValue("EmulatorTrap",&EmulatorTrap,1);
 		flag = RTC_Enabled;
 		PrefsSetBinaryValue("RTCEnabled",&flag,1);
 		PrefsSetBinaryValue("RTCY2KAdjust",&RTCY2KAdjust,1);

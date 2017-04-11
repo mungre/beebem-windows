@@ -153,6 +153,9 @@
     <ClCompile Include="ARMulator\thumbemu.c">
       <Filter>Source Files\ARMulator</Filter>
     </ClCompile>
+    <ClCompile Include="host.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="6502core.h">
@@ -226,9 +229,6 @@
     </ClInclude>
     <ClInclude Include="serialdevices.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SprowCoPro.h">
-      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="sysvia.h">
       <Filter>Header Files</Filter>
@@ -325,6 +325,12 @@
     </ClInclude>
     <ClInclude Include="ARMulator\iwmmxt.h">
       <Filter>Header Files\ARMulator</Filter>
+    </ClInclude>
+    <ClInclude Include="host.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SprowCoPro.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

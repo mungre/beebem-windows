@@ -69,6 +69,7 @@ Boston, MA  02110-1301, USA.
 #include "csw.h"
 #include "serialdevices.h"
 #include "Arm.h"
+#include "host.h"
 #include "version.h"
 #include "sprowcopro.h"
 
@@ -117,9 +118,9 @@ static const char *AboutText =
 #ifdef M512COPRO_ENABLED
 	"Master 512 Second Processor\n"
 #endif
-	"ARM Second Processor\n"
-        "Sprow ARM7TDMI 64MB\n\n"
-	"Version " VERSION_STRING ", Feb 2017";
+	"ARM Second Processor\n\n"
+	"Sprow ARM7TDMI 64MB\n\n"
+	"Version " VERSION_STRING ", " VERSION_DATE;
 
 /* Prototypes */
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
@@ -2398,6 +2399,9 @@ void BeebWin::UpdateOptiMenu(void) {
 	CheckMenuItem(m_hMenu,ID_BHARDWARE,(BHardware==1)?MF_CHECKED:MF_UNCHECKED);
 	CheckMenuItem(m_hMenu,ID_TSTYLE,(THalfMode==1)?MF_CHECKED:MF_UNCHECKED);
 	CheckMenuItem(m_hMenu,ID_PSAMPLES,(PartSamples)?MF_CHECKED:MF_UNCHECKED);
+	CheckMenuItem(m_hMenu,ID_EMTACN,(EmulatorTrap&1)?MF_CHECKED:MF_UNCHECKED);
+	CheckMenuItem(m_hMenu,ID_EMTWSS,(EmulatorTrap&2)?MF_CHECKED:MF_UNCHECKED);
+	CheckMenuItem(m_hMenu,ID_EMTBAS,(EmulatorTrap&16)?MF_CHECKED:MF_UNCHECKED);
 }
 /***************************************************************************/
 void BeebWin::HandleCommand(int MenuId)
@@ -3538,6 +3542,20 @@ void BeebWin::HandleCommand(int MenuId)
 		BHardware=1-BHardware;
 		UpdateOptiMenu();
 		break;
+
+	case ID_EMTACN:
+		EmulatorTrap=(EmulatorTrap^1)&0xF3;
+		UpdateOptiMenu();
+		break;
+	case ID_EMTWSS:
+		EmulatorTrap=(EmulatorTrap^2)&0xF3;
+		UpdateOptiMenu();
+		break;
+	case ID_EMTBAS:
+		EmulatorTrap=EmulatorTrap^16;
+		UpdateOptiMenu();
+		break;
+
 	case ID_PSAMPLES:
 		PartSamples=1-PartSamples;
 		UpdateOptiMenu();

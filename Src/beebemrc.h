@@ -307,6 +307,9 @@ Boston, MA  02110-1301, USA.
 #define ID_EXTRAS                       40144
 #define ID_FULLSET                      40145
 #define ID_PSAMPLES                     40147
+#define ID_EMTACN                       40148
+#define ID_EMTWSS                       40149
+#define ID_EMTBAS                       40150
 #define IDM_FIXEDSPEED100               40151
 #define IDM_FIXEDSPEED5                 40154
 #define IDM_FIXEDSPEED2                 40155
@@ -435,6 +438,7 @@ Boston, MA  02110-1301, USA.
 #define ID_IDEDRIVE                     40287
 #define ID_VIEW_DD_1280X720             40288
 #define ID_VIEW_DD_1920X1080            40289
+#define IDM_ARMCOPRO                    40290
 #define IDC_STATIC                      -1
 
 // Next default values for new objects
@@ -443,10 +447,8 @@ Boston, MA  02110-1301, USA.
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
 #define _APS_NEXT_RESOURCE_VALUE        117
-#define _APS_NEXT_COMMAND_VALUE         40290
+#define _APS_NEXT_COMMAND_VALUE         40291
 #define _APS_NEXT_CONTROL_VALUE         1087
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
-
-#define IDM_ARMCOPRO                    40291
